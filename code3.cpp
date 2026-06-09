@@ -1,17 +1,19 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-main()
-{
-    int n, reverse = 0;
+int main() {
+    int a, b;
 
-    cin >> n;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
 
-    while(n > 0)
-    {
-        reverse = reverse * 10 + (n % 10);
-        n = n / 10;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
 
-    cout << reverse;
+    cout << "GCD = " << a;
+
+    return 0;
 }

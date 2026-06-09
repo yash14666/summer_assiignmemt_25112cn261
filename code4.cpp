@@ -1,14 +1,24 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int n;
-
-    cin >> n;
-
-    for (int i = 1; i <= 10; i++) {
-        cout << n << " x " << i << " = " << n * i << endl;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
+}
+
+int main() {
+    int a, b;
+    
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    int lcm = (a * b) / gcd(a, b);
+
+    cout << "LCM = " << lcm;
 
     return 0;
 }
