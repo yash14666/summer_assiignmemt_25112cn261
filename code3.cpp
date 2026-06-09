@@ -1,19 +1,35 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
-    int a, b;
+    int num, originalNum, remainder, digits = 0;
+    int result = 0;
 
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
+    cout << "Enter a number: ";
+    cin >> num;
 
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+    originalNum = num;
+
+    // Count digits
+    int temp = num;
+    while (temp != 0) {
+        digits++;
+        temp /= 10;
     }
 
-    cout << "GCD = " << a;
+    // Calculate sum of digits raised to the power of digits
+    temp = num;
+    while (temp != 0) {
+        remainder = temp % 10;
+        result += pow(remainder, digits);
+        temp /= 10;
+    }
+
+    if (result == originalNum)
+        cout << originalNum << " is an Armstrong Number";
+    else
+        cout << originalNum << " is not an Armstrong Number";
 
     return 0;
 }

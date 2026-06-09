@@ -2,28 +2,22 @@
 using namespace std;
 
 int main() {
-    int start, end;
+    int n, a = 0, b = 1, next;
 
-    cout << "Enter starting number: ";
-    cin >> start;
-    cout << "Enter ending number: ";
-    cin >> end;
+    cout << "Enter n: ";
+    cin >> n;
 
-    for (int num = start; num <= end; num++) {
-        if (num <= 1)
-            continue;
-
-        bool isPrime = true;
-
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                isPrime = false;
-                break;
-            }
+    if (n == 1)
+        cout << "Nth term = " << a;
+    else if (n == 2)
+        cout << "Nth term = " << b;
+    else {
+        for (int i = 3; i <= n; i++) {
+            next = a + b;
+            a = b;
+            b = next;
         }
-
-        if (isPrime)
-            cout << num << " ";
+        cout << "Nth term = " << b;
     }
 
     return 0;

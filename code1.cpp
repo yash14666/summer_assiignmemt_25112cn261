@@ -2,27 +2,20 @@
 using namespace std;
 
 int main() {
-    int n;
-    bool isPrime = true;
+    int n, a = 0, b = 1, next;
 
-    cout << "Enter a number: ";
+    cout << "Enter number of terms: ";
     cin >> n;
 
-    if (n <= 1) {
-        isPrime = false;
-    } else {
-        for (int i = 2; i <= n / 2; i++) {
-            if (n % i == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-    }
+    cout << "Fibonacci Series: ";
 
-    if (isPrime)
-        cout << n << " is a Prime Number." << endl;
-    else
-        cout << n << " is not a Prime Number." << endl;
+    for (int i = 1; i <= n; i++) {
+        cout << a << " ";
+
+        next = a + b;
+        a = b;
+        b = next;
+    }
 
     return 0;
 }
